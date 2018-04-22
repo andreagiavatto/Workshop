@@ -12,6 +12,10 @@
 		22142C6620826F3B00058603 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22142C6420826F3B00058603 /* Main.storyboard */; };
 		22142C6820826F3B00058603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22142C6720826F3B00058603 /* Assets.xcassets */; };
 		22142C6B20826F3B00058603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22142C6920826F3B00058603 /* LaunchScreen.storyboard */; };
+		227D1A98208562E100147111 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227D1A97208562E000147111 /* UIImage+Gif.swift */; };
+		228F5C142083E2F20032F4D5 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C132083E2F20032F4D5 /* Gif.swift */; };
+		228F5C162083E4630032F4D5 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C152083E4630032F4D5 /* CustomCollectionViewCell.swift */; };
+		22CF0DB52083BCA8008E9923 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF0DB42083BCA8008E9923 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		22142C6720826F3B00058603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22142C6A20826F3B00058603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22142C6C20826F3C00058603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		227D1A97208562E000147111 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		228F5C132083E2F20032F4D5 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		228F5C152083E4630032F4D5 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		22CF0DB42083BCA8008E9923 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,10 @@
 				22142C6720826F3B00058603 /* Assets.xcassets */,
 				22142C6920826F3B00058603 /* LaunchScreen.storyboard */,
 				22142C6C20826F3C00058603 /* Info.plist */,
+				22CF0DB42083BCA8008E9923 /* Config.swift */,
+				228F5C132083E2F20032F4D5 /* Gif.swift */,
+				228F5C152083E4630032F4D5 /* CustomCollectionViewCell.swift */,
+				227D1A97208562E000147111 /* UIImage+Gif.swift */,
 			);
 			path = "Workshop-CollectionView";
 			sourceTree = "<group>";
@@ -134,8 +146,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227D1A98208562E100147111 /* UIImage+Gif.swift in Sources */,
 				22142C6320826F3B00058603 /* ViewController.swift in Sources */,
+				228F5C162083E4630032F4D5 /* CustomCollectionViewCell.swift in Sources */,
 				22142C6120826F3B00058603 /* AppDelegate.swift in Sources */,
+				228F5C142083E2F20032F4D5 /* Gif.swift in Sources */,
+				22CF0DB52083BCA8008E9923 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
