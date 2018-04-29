@@ -7,26 +7,40 @@
 
 import Foundation
 
-class Gif {
-    let title: String
-    let url: URL
+struct Gifs: Decodable {
     
-    init(title: String, url: URL) {
-        self.title = title
-        self.url = url
+    let gifs: [Gif]
+    
+    enum CodingKeys: String, CodingKey {
+        case gifs = "data"
     }
     
-    convenience init?(json: [String: Any]) {
-        guard
-            let title = json["title"] as? String,
-            let images = json["images"] as? [String: Any],
-            let fixedHeight = images["fixed_height"] as? [String: Any],
-            let urlString = fixedHeight["url"] as? String,
-            let url = URL(string: urlString)
-            else {
-                return nil
+    struct Gif: Decodable {
+        
+        let title: String
+        let url: URL
+        
+        enum CodingKeys: String, CodingKey {
+            case title
+            case images
         }
         
-        self.init(title: title, url: url)
+        enum Images: String, CodingKey {
+            case fixedHeight = "fixed_height"
+        }
+        
+        enum FixedHeight: String, CodingKey {
+            case url
+        }
+        
+        init(from decoder: Decoder) throws {
+            
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            title = try values.decode(String.self, forKey: .title)
+            
+            let images = try values.nestedContainer(keyedBy: Images.self, forKey: .images)
+            let fixedHeight = try images.nestedContainer(keyedBy: FixedHeight.self, forKey: .fixedHeight)
+            url = try fixedHeight.decode(URL.self, forKey: .url)
+        }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var gifs = [Gif]()
+    var gifs: Gifs?
     
     override func viewDidLoad() {
         
@@ -22,15 +22,13 @@ class ViewController: UIViewController {
         
         fetchGIFs { [weak self] (gifs) in
             DispatchQueue.main.async {
-                if let gifs = gifs {
-                    self?.gifs.append(contentsOf: gifs)
-                    self?.collectionView.reloadData()
-                }
+                self?.gifs = gifs
+                self?.collectionView.reloadData()
             }
         }
     }
     
-    func fetchGIFs(completion: (([Gif]?) -> Void)?) {
+    func fetchGIFs(completion: ((Gifs?) -> Void)?) {
 
         guard let trendingURL = URL(string: "\(Giphy.host)\(Giphy.path)?api_key=\(Giphy.apiKey)") else {
             completion?(nil)
@@ -44,25 +42,22 @@ class ViewController: UIViewController {
         }.resume()
     }
 
-    func parseResponse(data: Data?) -> [Gif]? {
+    func parseResponse(data: Data?) -> Gifs? {
 
         guard let data = data else {
             return nil
         }
 
-        var gifs: [Gif]?
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject], let gifsList = json["data"] as? [[String: Any]] {
-                gifs = gifsList.compactMap { return Gif(json: $0) }
-            }
-        } catch {}
-
-        return gifs
+        let decoder = JSONDecoder()
+        
+        return try? decoder.decode(Gifs.self, from: data)
     }
     
     func configure(_ cell: CustomCollectionViewCell, at indexPath: IndexPath) {
         
-        let gif = gifs[indexPath.item]
+        guard let gif = gifs?.gifs[indexPath.item] else {
+            return
+        }
         cell.gifTitleLabel.text = gif.title
         URLSession.shared.dataTask(with: gif.url) { (data, response, error) in
             DispatchQueue.main.async {
@@ -78,7 +73,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return gifs.count
+        return gifs?.gifs.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
