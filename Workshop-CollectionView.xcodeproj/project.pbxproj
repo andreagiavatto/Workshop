@@ -16,6 +16,7 @@
 		228F5C142083E2F20032F4D5 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C132083E2F20032F4D5 /* Gif.swift */; };
 		228F5C162083E4630032F4D5 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C152083E4630032F4D5 /* CustomCollectionViewCell.swift */; };
 		22CF0DB52083BCA8008E9923 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF0DB42083BCA8008E9923 /* Config.swift */; };
+		22DA742920D0F5B4002C3C3F /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA742820D0F5B4002C3C3F /* PinterestLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		228F5C132083E2F20032F4D5 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		228F5C152083E4630032F4D5 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		22CF0DB42083BCA8008E9923 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		22DA742820D0F5B4002C3C3F /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				22142C6020826F3B00058603 /* AppDelegate.swift */,
+				22DA742820D0F5B4002C3C3F /* PinterestLayout.swift */,
 				22142C6220826F3B00058603 /* ViewController.swift */,
 				22142C6420826F3B00058603 /* Main.storyboard */,
 				22142C6720826F3B00058603 /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				227D1A98208562E100147111 /* UIImage+Gif.swift in Sources */,
 				22142C6320826F3B00058603 /* ViewController.swift in Sources */,
 				228F5C162083E4630032F4D5 /* CustomCollectionViewCell.swift in Sources */,
+				22DA742920D0F5B4002C3C3F /* PinterestLayout.swift in Sources */,
 				22142C6120826F3B00058603 /* AppDelegate.swift in Sources */,
 				228F5C142083E2F20032F4D5 /* Gif.swift in Sources */,
 				22CF0DB52083BCA8008E9923 /* Config.swift in Sources */,

@@ -11,4 +11,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var gifImageView: UIImageView!
     @IBOutlet weak var gifTitleLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.borderColor = UIColor.blue.cgColor
+        layer.borderWidth = 2.0
+        layer.cornerRadius = 4.0
+    }
 }

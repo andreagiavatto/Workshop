@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Gifs: Decodable {
+struct Result: Decodable {
     
     let gifs: [Gif]
     
@@ -18,6 +18,8 @@ struct Gifs: Decodable {
     struct Gif: Decodable {
         
         let title: String
+        let width: Int
+        let height: Int
         let url: URL
         
         enum CodingKeys: String, CodingKey {
@@ -26,11 +28,13 @@ struct Gifs: Decodable {
         }
         
         enum Images: String, CodingKey {
-            case fixedHeight = "fixed_height"
+            case original
         }
         
-        enum FixedHeight: String, CodingKey {
+        enum Original: String, CodingKey {
             case url
+            case width
+            case height
         }
         
         init(from decoder: Decoder) throws {
@@ -39,8 +43,12 @@ struct Gifs: Decodable {
             title = try values.decode(String.self, forKey: .title)
             
             let images = try values.nestedContainer(keyedBy: Images.self, forKey: .images)
-            let fixedHeight = try images.nestedContainer(keyedBy: FixedHeight.self, forKey: .fixedHeight)
-            url = try fixedHeight.decode(URL.self, forKey: .url)
+            let original = try images.nestedContainer(keyedBy: Original.self, forKey: .original)
+            let w = try original.decode(String.self, forKey: .width)
+            let h = try original.decode(String.self, forKey: .height)
+            width = Int(w)!
+            height = Int(h)!
+            url = try original.decode(URL.self, forKey: .url)
         }
     }
 }
